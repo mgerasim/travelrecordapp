@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="travelrecordapp.MainPage" >
+    <StackLayout VerticalOptions="Center">
+        <Entry Placeholder="Электронный адрес"
+               Keyboard="Email"/>
+        <Entry Placeholder="Пароль"
+               IsPassword="true"/>
+        <Button x:Name="LoginButton"
+                Text="Вход"
+                Clicked="Login_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
