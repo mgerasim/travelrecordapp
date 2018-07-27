@@ -3,11 +3,13 @@
     <StackLayout VerticalOptions="Center"
                  Margin="20">
         <Entry Placeholder="Email address"
+               x:Name="emailEntry"
                Keyboard="Email"/>
         <Entry Placeholder="Password"
+               x:Name="passwordEntry"
                IsPassword="true"/>
         <Button x:Name="LoginButton"
-                Margin="0, 50"
+                Margin="0, 50, 0, 0"
                 Text="Log in"
                 BackgroundColor="Blue"
                 TextColor="White"

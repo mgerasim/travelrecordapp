@@ -16,7 +16,17 @@ namespace TravelRecordApp
 
         void LoginHandle_Clicked(object sender, System.EventArgs e)
         {
-            
+            bool isEmailEmpty = string.IsNullOrEmpty(emailEntry.Text);
+            bool isPasswordEmpty = string.IsNullOrEmpty(passwordEntry.Text);
+
+            if (isEmailEmpty || isPasswordEmpty) 
+            {
+                
+            } 
+            esle
+            {
+                
+            }
         }
     }
 }
