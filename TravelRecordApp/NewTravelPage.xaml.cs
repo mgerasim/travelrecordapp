@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Plugin.Geolocator;
 using SQLite;
+using TravelRecordApp.Logic;
 using TravelRecordApp.Model;
 using Xamarin.Forms;
 
@@ -13,22 +16,59 @@ namespace TravelRecordApp
             InitializeComponent();
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var locator = CrossGeolocator.Current;
+
+            var position = await locator.GetPositionAsync();
+
+            var venues = await VenueLogic.GetVenues(position.Latitude, position.Longitude);
+
+            venueListView.ItemsSource = venues;
+        }
+
         void SaveHandle_Clicked(object sender, System.EventArgs e)
         {
-            Post post = new Post()
+            try
             {
-                Experience = experiencyEntry.Text
-            };
 
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                var selectedVenue = venueListView.SelectedItem as Venue;
+                var firstCategory = selectedVenue.categories.FirstOrDefault();
+
+                Post post = new Post()
+                {
+                    Experience = experiencyEntry.Text,
+                    CategoryId = firstCategory.id,
+                    CategoryName = firstCategory.name,
+                    Address = selectedVenue.location.address,
+                    Distance = selectedVenue.location.distance,
+                    Latitude = selectedVenue.location.lat,
+                    Longitude = selectedVenue.location.lng,
+                    VenueName = selectedVenue.name
+
+
+                };
+
+                using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                {
+                    conn.CreateTable<Post>();
+                    int rows = conn.Insert(post);
+
+                    if (rows > 0)
+                        DisplayAlert("Success", "Experience successfully inserted", "Ok");
+                    else
+                        DisplayAlert("Fail", "Experience fialfully inserted", "Ok");
+                }
+            }
+            catch(NullReferenceException ex)
             {
-                conn.CreateTable<Post>();
-                int rows = conn.Insert(post);
-
-                if (rows > 0)
-                    DisplayAlert("Success", "Experience successfully inserted", "Ok");
-                else
-                    DisplayAlert("Fail", "Experience fialfully inserted", "Ok");
+                
+            }
+            catch(Exception ex) 
+            {
+                
             }
 
         }
