@@ -12,6 +12,10 @@ namespace TravelRecordApp
         public MainPage()
         {
             InitializeComponent();
+
+            var assembly = typeof(MainPage);
+
+            iconImage.Source = ImageSource.FromResource("TravelRecordApp.Assets.Images.logo.ico", assembly);
         }
 
         void LoginHandle_Clicked(object sender, System.EventArgs e)
@@ -21,7 +25,8 @@ namespace TravelRecordApp
 
             if (isEmailEmpty || isPasswordEmpty) 
             {
-                
+                var assembly = typeof(MainPage);
+                iconImage.Source = ImageSource.FromResource("TravelRecordApp.Assets.Images.logo.ico", assembly);                
             }
             else
             {

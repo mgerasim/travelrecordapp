@@ -15,5 +15,19 @@
     <Folder Include="Model\" />
     <Folder Include="Helpers\" />
     <Folder Include="Logic\" />
+    <Folder Include="Assets\" />
+    <Folder Include="Assets\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\Images\flag.png" />
+    <None Remove="Assets\Images\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Images\flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Images\logo.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
