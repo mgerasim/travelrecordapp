@@ -25,6 +25,8 @@ namespace TravelRecordApp.Model
 
         public int Distance { get; set; }
 
+        public string UserID { get; set; }
+
         public Post()
         {
         }

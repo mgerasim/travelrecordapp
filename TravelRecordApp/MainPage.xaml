@@ -18,6 +18,10 @@
                 BackgroundColor="Blue"
                 TextColor="White"
                 Clicked="LoginHandle_Clicked"/>
+        <Button x:Name="registerUserButton"
+                Text="Register"
+                HorizontalOptions="End"
+                Clicked="Handle_Clicked"/>
         
     </StackLayout>
 </ContentPage>

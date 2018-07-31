@@ -1,4 +1,6 @@
 using System;
+using Microsoft.WindowsAzure.MobileServices;
+using TravelRecordApp.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,6 +10,14 @@ namespace TravelRecordApp
     public partial class App : Application
     {
         public static string DatabaseLocation = string.Empty;
+
+        public static MobileServiceClient MobileService =
+                    new MobileServiceClient(
+                    "https://travelrecordappmgerasim.azurewebsites.net"
+                    );
+
+
+        public static User user = new User();
 
         public App()
         {
@@ -23,6 +33,8 @@ namespace TravelRecordApp
             MainPage = new NavigationPage(new MainPage());
 
             DatabaseLocation = databaseLocation;
+
+
         }
         protected override void OnStart()
         {
