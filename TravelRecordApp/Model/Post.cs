@@ -29,5 +29,10 @@ namespace TravelRecordApp.Model
         public Post()
         {
         }
+
+        public static async void Insert(Post post)
+        {
+            await App.MobileService.GetTable<Post>().InsertAsync(post);
+        }
     }
 }
