@@ -33,15 +33,10 @@ namespace TravelRecordApp
                                                          position.Longitude);
             var span = new Xamarin.Forms.Maps.MapSpan(center, 2, 2);
             locationsMap.MoveToRegion(span);
-            
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            {
-                conn.CreateTable<Post>();
-                var posts = conn.Table<Post>().ToList();
 
-                DisplayInMap(posts);
 
-            }
+            var posts = await Post.Read();
+            DisplayInMap(posts);
         }
 
         protected async override void OnDisappearing()

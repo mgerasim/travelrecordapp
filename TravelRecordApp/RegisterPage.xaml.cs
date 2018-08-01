@@ -22,7 +22,7 @@ namespace TravelRecordApp
                     Password = passwordEntry.Text
                 };
 
-                App.MobileService.GetTable<User>().InsertAsync(user);
+                User.Register(user);
             }
             else
             {

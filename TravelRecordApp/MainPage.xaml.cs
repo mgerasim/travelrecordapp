@@ -21,36 +21,16 @@ namespace TravelRecordApp
 
         private async void LoginHandle_Clicked(object sender, System.EventArgs e)
         {
-            
-            bool isEmailEmpty = string.IsNullOrEmpty(emailEntry.Text);
-            bool isPasswordEmpty = string.IsNullOrEmpty(passwordEntry.Text);
 
-            if (isEmailEmpty || isPasswordEmpty) 
+            bool canLogin = await User.Login(emailEntry.Text, passwordEntry.Text);
+            if (canLogin) 
             {
-                var assembly = typeof(MainPage);
-                iconImage.Source = ImageSource.FromResource("TravelRecordApp.Assets.Images.logo.ico", assembly);                
+                await Navigation.PushAsync(new HomePage());
             }
-            else
+            else 
             {
-                var user = (await App.MobileService.GetTable<User>().Where(u => u.Email == emailEntry.Text).ToListAsync()).FirstOrDefault();
-
-                if (user != null)
-                {
-                    App.user = user;
-                    if (user.Password == passwordEntry.Text) 
-                    {
-                        await Navigation.PushAsync(new HomePage());
-
-                    }
-                    else
-                    {
-                        await DisplayAlert("Error", "Password or Email are incorrect", "Ok");
-                    }
-                }
-                else
-                {
-                    await DisplayAlert("Error", "There was an error logging are you in", "Ok");
-                }
+                await DisplayAlert("Error", "Try again", "Ok");
+                
             }
         }
 
