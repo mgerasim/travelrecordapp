@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TravelRecordApp.RegisterPage">
     <ContentPage.Content>
-         <StackLayout VerticalOptions="Center"
+         <StackLayout x:Name="containerStackLayout" VerticalOptions="Center"
                  Margin="20">
         <Entry Placeholder="Email address"
+               Text="{Binding Email, Mode=TwoWay}"
                x:Name="emailEntry"
                Keyboard="Email"/>
         <Entry Placeholder="Password"
+               Text="{Binding Password, Mode=TwoWay}"
                x:Name="passwordEntry"
                IsPassword="true"/>
         <Entry Placeholder="Confirm Password"

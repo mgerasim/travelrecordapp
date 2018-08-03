@@ -7,20 +7,21 @@ namespace TravelRecordApp
 {
     public partial class RegisterPage : ContentPage
     {
+        User user;
         public RegisterPage()
         {
             InitializeComponent();
+
+            user = new User();
+
+            containerStackLayout.BindingContext = user;
+
         }
 
         void Handle_Clicked(object sender, System.EventArgs e)
         {
             if (passwordEntry.Text == confirmPasswordEntry.Text)
             {
-                User user = new User()
-                {
-                    Email = emailEntry.Text,
-                    Password = passwordEntry.Text
-                };
 
                 User.Register(user);
             }
