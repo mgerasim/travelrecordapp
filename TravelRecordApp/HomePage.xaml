@@ -6,7 +6,7 @@
     
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Add"
-                     Clicked="AddHandle_Clicked"/>
+                     Command="{Binding navigationCommand}"/>
     </TabbedPage.ToolbarItems>
     
     <local:HistoryPage Title="History"/>
