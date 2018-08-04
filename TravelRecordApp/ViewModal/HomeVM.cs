@@ -11,9 +11,9 @@ namespace TravelRecordApp.ViewModal
             navigationCommand = new NavigationCommand(this);
         }
 
-        public void Navigate()
+        public async void Navigate()
         {
-           // navigationCommand.   
+            await App.Current.MainPage.Navigation.PushAsync(new NewTravelPage());  
         }
     }
 }

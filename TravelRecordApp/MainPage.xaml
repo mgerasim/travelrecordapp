@@ -8,16 +8,19 @@
                Margin="0, 0, 0, 50"/>
         <Entry Placeholder="Email address"
                x:Name="emailEntry"
+               Text="{Binding Email, Mode=TwoWay}"
                Keyboard="Email"/>
         <Entry Placeholder="Password"
                x:Name="passwordEntry"
+               Text="{Binding Password, Mode=TwoWay}"
                IsPassword="true"/>
         <Button x:Name="LoginButton"
                 Margin="0, 50, 0, 0"
                 Text="Log in"
                 BackgroundColor="Blue"
                 TextColor="White"
-                Clicked="LoginHandle_Clicked"/>
+                Command="{Binding LoginCommand}"
+                CommandParameter="{Binding User}"/>
         <Button x:Name="registerUserButton"
                 Text="Register"
                 HorizontalOptions="End"
