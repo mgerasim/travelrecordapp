@@ -13,13 +13,15 @@
                IsPassword="true"/>
         <Entry Placeholder="Confirm Password"
                x:Name="confirmPasswordEntry"
+               Text="{Binding ConfirmPassword, Mode=TwoWay}"
                IsPassword="true"/>
         <Button x:Name="RegisterButton"
                 Margin="0, 50, 0, 0"
                 Text="Register"
                 BackgroundColor="Blue"
                 TextColor="White"
-                Clicked="Handle_Clicked"/>
+                Command="{Binding RegisterCommand}"
+                CommandParameter="{Binding User}"/>
         
     </StackLayout>
     </ContentPage.Content>

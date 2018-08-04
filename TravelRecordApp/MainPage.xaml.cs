@@ -22,11 +22,5 @@ namespace TravelRecordApp
 
             BindingContext = viewModel;
         }
-
-
-        void Handle_Clicked(object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new RegisterPage());
-        }
     }
 }
