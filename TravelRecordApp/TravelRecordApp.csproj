@@ -19,6 +19,7 @@
     <Folder Include="Assets\Images\" />
     <Folder Include="ViewModal\" />
     <Folder Include="ViewModal\Commands\" />
+    <Folder Include="ViewModal\Converters\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\Images\flag.png" />

@@ -10,6 +10,20 @@ namespace TravelRecordApp.Model
 {
     public class Post : INotifyPropertyChanged
     {
+        private DateTimeOffset createAt;
+
+        public DateTimeOffset CreateAt 
+        {
+            get
+            {
+                return createAt;    
+            }
+            set
+            {
+                createAt = value;
+                OnPropertyChanged("CreateAt");
+            }
+        }
         private string id;
 
         public string Id { 
