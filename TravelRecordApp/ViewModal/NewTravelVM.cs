@@ -34,7 +34,7 @@ namespace TravelRecordApp.ViewModal
             set
             {
                 experience = value;
-                post = new Post()
+                Post = new Post()
                 {
                     Experience = this.Experience,
                     Venue = this.venue
@@ -54,7 +54,7 @@ namespace TravelRecordApp.ViewModal
             set
             {
                 venue = value;
-                post = new Post()
+                Post = new Post()
                 {
                     Experience = this.Experience,
                     Venue = this.venue
