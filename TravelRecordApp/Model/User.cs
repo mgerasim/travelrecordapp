@@ -7,7 +7,7 @@ namespace TravelRecordApp.Model
 {
     public class User : INotifyPropertyChanged
     {
-        public string id;
+        private string id;
 
         public string Id { 
             get

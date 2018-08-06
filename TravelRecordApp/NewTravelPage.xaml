@@ -3,7 +3,8 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save"
-                     Clicked="SaveHandle_Clicked"/>
+                     Command="{Binding PostCommnad}"
+                     CommandParameter="{Binding Post}"/>
         
     </ContentPage.ToolbarItems>
     
@@ -15,6 +16,7 @@
 
         <ListView x:Name="venueListView"
                   Margin="20, 0"
+                  SelectedItem="{Binding Venue, Mode=TwoWay}"
                   HorizontalOptions="FillAndExpand">
             <ListView.ItemTemplate>
                 <DataTemplate>
