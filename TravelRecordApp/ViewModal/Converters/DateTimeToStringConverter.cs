@@ -25,11 +25,11 @@ namespace TravelRecordApp.ViewModal.Converters
             else
             {
                 if (diff.TotalSeconds < 60)
-                    return $"{diff.TotalSeconds} seconds ago";
+                    return $"{diff.TotalSeconds:0} seconds ago";
                 if (diff.TotalMinutes < 60)
-                    return $"{diff.TotalMinutes} minutes ago";
+                    return $"{diff.TotalMinutes:0} minutes ago";
                 if (diff.TotalHours < 24)
-                    return $"{diff.TotalHours} hours ago";
+                    return $"{diff.TotalHours:0} hours ago";
             }
             return timeAgo;
         }
